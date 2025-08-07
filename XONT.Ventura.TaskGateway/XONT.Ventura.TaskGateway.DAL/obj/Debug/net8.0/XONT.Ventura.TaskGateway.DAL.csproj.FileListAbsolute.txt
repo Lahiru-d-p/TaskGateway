@@ -1,0 +1,15 @@
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\bin\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.deps.json
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\bin\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\bin\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.csproj.AssemblyReference.cache
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.AssemblyInfoInputs.cache
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.AssemblyInfo.cs
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.csproj.CoreCompileInputs.cache
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\refint\XONT.Ventura.TaskGateway.DAL.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DAL.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\ref\XONT.Ventura.TaskGateway.DAL.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\bin\Debug\net8.0\XONT.Ventura.AppConsole.Domain.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\bin\Debug\net8.0\XONT.Common.Message.MessageCreate.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DAL\obj\Debug\net8.0\XONT.Ven.ACF0DEE2.Up2Date

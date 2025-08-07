@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.18" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.13.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.4" />
+    <PackageReference Include="Yarp.ReverseProxy" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XONT.Ventura.TaskGateway.BLL\XONT.Ventura.TaskGateway.BLL.csproj" />
+    <ProjectReference Include="..\XONT.Ventura.TaskGateway.DOMAIN\XONT.Ventura.TaskGateway.DOMAIN.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="XONT.Common.Data.Resource">
+      <HintPath>..\..\..\bin\XONT.Common.Data.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.Common.Message.MessageCreate">
+      <HintPath>..\..\..\bin\XONT.Common.Message.MessageCreate.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.Ventura.AppConsole.Domain">
+      <HintPath>..\..\..\bin\XONT.Ventura.AppConsole.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.Ventura.Common.ConvertDateTime">
+      <HintPath>..\..\..\bin\XONT.Ventura.Common.ConvertDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.VENTURA.SOXLR71.BLL">
+      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.VENTURA.SOXLR71.DAL">
+      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.VENTURA.SOXLR71.DOMAIN">
+      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.DOMAIN.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.VENTURA.SOXLR71.WEB">
+      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.WEB.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

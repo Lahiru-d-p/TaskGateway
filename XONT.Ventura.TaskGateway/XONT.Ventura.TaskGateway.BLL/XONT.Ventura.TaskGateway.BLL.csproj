@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.8" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XONT.Ventura.TaskGateway.DAL\XONT.Ventura.TaskGateway.DAL.csproj" />
+    <ProjectReference Include="..\XONT.Ventura.TaskGateway.DOMAIN\XONT.Ventura.TaskGateway.DOMAIN.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="XONT.Common.Data.EncriptDecript">
+      <HintPath>..\..\..\bin\XONT.Common.Data.EncriptDecript.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.Common.Data.Resource">
+      <HintPath>..\..\..\bin\XONT.Common.Data.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="XONT.Ventura.AppConsole.Domain">
+      <HintPath>..\..\..\bin\XONT.Ventura.AppConsole.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

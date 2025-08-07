@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
+using XONT.Ventura.TaskGateway.BLL;
 
 
 namespace XONT.Ventura.TaskGateway;
@@ -19,8 +20,13 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
-
-            if (context.User.HasClaim(c => c.Type == "unAuthTask" && c.Value == taskid))
+            List<string> unAuthTaskList = httpContext.Session.GetObject<List<string>>("UnAuthorizedTasks") ?? new List<string>();
+            if (unAuthTaskList == null || !unAuthTaskList.Any())
+            {
+                context.Succeed(requirement);
+                return Task.CompletedTask;
+            }
+            else if (unAuthTaskList.Contains(taskid))
             {
                 context.Fail();
             }

@@ -74,6 +74,7 @@ namespace XONT.Ventura.TaskGateway.BLL
             httpContext.Session.SetString("Main_BusinessUnit", user.BusinessUnit);
             httpContext.Session.SetObject<User>("Main_LoginUser", user);
             httpContext.Session.SetObject<BusinessUnit>("Main_BusinessUnitDetail", businessUnit);
+            httpContext.Session.SetObject<List<string>>("UnAuthorizedTasks", unAuthorizedTasks);
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

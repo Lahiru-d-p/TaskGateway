@@ -66,7 +66,7 @@ namespace XONT.Ventura.TaskGateway.BLL
             }
 
             var sessionIdCore = httpContext.Session.Id;
-            httpContext.Session.SetString("SessionID",modal.SessionID);
+            //httpContext.Session.SetString("SessionID",SessionID);
             httpContext.Session.SetString("SessionIDCore", sessionIdCore);
             httpContext.Session.SetString("Theme",user.Theme);
             httpContext.Session.SetInt32("Main_Language", SetDefaultLanguage(ref user));
@@ -83,7 +83,7 @@ namespace XONT.Ventura.TaskGateway.BLL
             {
                 new Claim(JwtRegisteredClaimNames.Sub,modal.UserName),
                 new Claim("businessUnit", user.BusinessUnit),
-                new Claim("sessionID", modal.SessionID??""),
+                //new Claim("sessionID", SessionID??""),
                 new Claim("sessionIDCore", sessionIdCore??""),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };

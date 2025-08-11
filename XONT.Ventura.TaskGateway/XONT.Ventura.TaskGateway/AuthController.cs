@@ -18,7 +18,7 @@ public class AuthController : ControllerBase
     public IActionResult GenerateToken([FromBody] UserLogin model)
     {
         string message = string.Empty;
-        string token = _authService.GenerateToken(model, ref message);
+        string token = _authService.GenerateToken(model,ref message);
 
         return Ok(new { Token = token });
     }

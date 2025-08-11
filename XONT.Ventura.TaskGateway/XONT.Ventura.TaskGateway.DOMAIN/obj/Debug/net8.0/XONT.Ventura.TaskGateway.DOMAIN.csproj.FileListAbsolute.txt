@@ -13,3 +13,4 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DOMAIN\bin\Debug\net8.0\XONT.Common.Message.MessageCreate.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DOMAIN\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DOMAIN.csproj.AssemblyReference.cache
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DOMAIN\obj\Debug\net8.0\XONT.Ven.AA12DD2D.Up2Date
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway.DOMAIN\obj\Debug\net8.0\XONT.Ventura.TaskGateway.DOMAIN.sourcelink.json

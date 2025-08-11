@@ -11,7 +11,6 @@ namespace XONT.Ventura.TaskGateway.DOMAIN
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string SessionID { get; set; }
     }
 
 }

@@ -181,10 +181,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          },
-          "sessionID": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

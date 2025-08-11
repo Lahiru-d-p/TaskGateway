@@ -25,7 +25,7 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
-            else if (unAuthTaskList.Contains(taskid))
+            else if (unAuthTaskList.Contains(taskid, StringComparer.OrdinalIgnoreCase))
             {
                 context.Fail();
             }

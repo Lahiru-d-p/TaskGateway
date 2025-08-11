@@ -1,25 +1,29 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using System.Security.Claims;
+using System.Runtime.Loader;
 using System.Text;
 using XONT.Ventura.TaskGateway;
 using XONT.Ventura.TaskGateway.BLL;
 using XONT.Ventura.TaskGateway.DAL;
 using XONT.Ventura.TaskGateway.DOMAIN;
-using Yarp.ReverseProxy;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+        options.SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
+    });
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Task Gateway API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Enter 'Bearer' followed by your token in the text box below.\nExample: Bearer abc123",
+        Description = "Enter 'Bearer' followed by your token\nExample: Bearer abc123",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -47,7 +51,6 @@ builder.Services.AddReverseProxy()
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
-
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -58,11 +61,11 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
-   {
-       options.RequireHttpsMetadata = false;
-       options.SaveToken = true;
-       options.IncludeErrorDetails = true;
-       options.TokenValidationParameters = new TokenValidationParameters
+    {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.IncludeErrorDetails = true;
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
@@ -81,80 +84,65 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddSingleton<IAuthorizationHandler, TaskAuthorizationHandler>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped< AuthDAL>();
+builder.Services.AddScoped<DBHelper>();
 builder.Services.AddHttpContextAccessor();
 
+var pluginPath = Path.Combine("E:/LahiruDilshan", "TaskDlls");
+var loadedAssemblies = new List<Assembly>();
 
-var pluginPath = Path.Combine(AppContext.BaseDirectory, "Plugins");
 if (Directory.Exists(pluginPath))
 {
-    foreach (var dll in Directory.GetFiles(pluginPath, "*.dll"))
+
+    foreach (var dllPath in Directory.GetFiles(pluginPath, "*.dll"))
     {
         try
         {
-            Assembly.LoadFrom(dll);
+            var assemblyName = AssemblyLoadContext.GetAssemblyName(dllPath);
+            var assembly = Assembly.LoadFrom(dllPath);
+            loadedAssemblies.Add(assembly);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to load {dll}: {ex.Message}");
+            Console.WriteLine($"Failed to load {dllPath}: {ex.Message}");
         }
     }
 }
-
-var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-var assembliesToLoad = new Queue<AssemblyName>();
-
-foreach (var asmName in Assembly.GetExecutingAssembly().GetReferencedAssemblies())
+else
 {
-    assembliesToLoad.Enqueue(asmName);
+    Console.WriteLine($"Plugin folder not found: {pluginPath}. No plugins loaded.");
 }
-
-var matchedAssemblies = new List<Assembly>();
-
-while (assembliesToLoad.Count > 0)
+foreach (var assembly in loadedAssemblies)
 {
-    var asmName = assembliesToLoad.Dequeue();
+    var assemblyName = assembly.GetName().Name;
 
-    if (!visited.Add(asmName.FullName))
-        continue;
-
-    if (!asmName.Name.StartsWith("XONT.VENTURA", StringComparison.OrdinalIgnoreCase))
-        continue;
-
-    try
+    if (assemblyName.EndsWith(".Web", StringComparison.OrdinalIgnoreCase))
     {
-        var asm = Assembly.Load(asmName);
-
-        if (asmName.Name.Contains("BLL", StringComparison.OrdinalIgnoreCase) ||
-            asmName.Name.Contains("DAL", StringComparison.OrdinalIgnoreCase)) 
-        {
-            matchedAssemblies.Add(asm);
-        }
-
-        foreach (var child in asm.GetReferencedAssemblies())
-        {
-            assembliesToLoad.Enqueue(child);
-        }
+        builder.Services.AddControllers().AddApplicationPart(assembly);
+        continue;
     }
-    catch (Exception ex)
+    if (!assemblyName.EndsWith(".BLL", StringComparison.OrdinalIgnoreCase) &&
+        !assemblyName.EndsWith(".DAL", StringComparison.OrdinalIgnoreCase))
     {
-        Console.WriteLine($"Failed to load {asmName.Name}: {ex.Message}");
+        continue;
     }
-}
 
-
-foreach (var assembly in matchedAssemblies)
-{
     var types = assembly.GetTypes()
-        .Where(t => t.IsClass && !t.IsAbstract );
+        .Where(t => t.IsClass &&
+                    !t.IsAbstract &&
+                    !t.IsInterface)
+        .ToList();
 
     foreach (var type in types)
     {
-        var interfaceType = type.GetInterfaces()
-            .FirstOrDefault(i => i.Name == $"I{type.Name}");
+        if (type.Name.StartsWith("<") || string.IsNullOrEmpty(type.Name)) continue;
 
-        if (interfaceType != null)
+        var serviceInterface = type.GetInterface($"I{type.Name}");
+
+        if (serviceInterface != null)
         {
-            builder.Services.AddScoped(interfaceType, type);
+            builder.Services.AddScoped(serviceInterface, type);
         }
         else
         {
@@ -170,14 +158,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Task Gateway API V1");
     });
 }
+
 app.UseSession();
 app.UseHttpsRedirection();
-
-app.UseStaticFiles(); 
-
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
@@ -189,19 +176,25 @@ app.MapReverseProxy();
 app.MapWhen(context => !context.Request.Path.StartsWithSegments("/api"), subApp =>
 {
     subApp.UseStaticFiles();
+
     subApp.Use(async (context, next) =>
     {
-        var taskId = context.Request.Path.Value.Split('/')[1];
-        if (!string.IsNullOrEmpty(taskId))
+        var path = context.Request.Path.Value?.Trim('/') ?? "";
+        var segments = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+        if (segments.Length > 0)
         {
-            var filePath = Path.Combine(app.Environment.WebRootPath, taskId, "index.html");
-            if (File.Exists(filePath))
+            var taskId = segments[0].ToLowerInvariant();
+            var indexPath = Path.Combine(app.Environment.WebRootPath, taskId, "index.html");
+
+            if (File.Exists(indexPath))
             {
                 context.Response.ContentType = "text/html";
-                await context.Response.SendFileAsync(filePath);
+                await context.Response.SendFileAsync(indexPath);
                 return;
             }
         }
+
         await next();
     });
 });

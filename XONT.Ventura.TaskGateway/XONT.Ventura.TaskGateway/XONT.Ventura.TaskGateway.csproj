@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.19" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.13.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.4" />
@@ -28,26 +30,11 @@
     <Reference Include="XONT.Common.Data.Resource">
       <HintPath>..\..\..\bin\XONT.Common.Data.Resource.dll</HintPath>
     </Reference>
-    <Reference Include="XONT.Common.Message.MessageCreate">
-      <HintPath>..\..\..\bin\XONT.Common.Message.MessageCreate.dll</HintPath>
-    </Reference>
     <Reference Include="XONT.Ventura.AppConsole.Domain">
       <HintPath>..\..\..\bin\XONT.Ventura.AppConsole.Domain.dll</HintPath>
     </Reference>
     <Reference Include="XONT.Ventura.Common.ConvertDateTime">
       <HintPath>..\..\..\bin\XONT.Ventura.Common.ConvertDateTime.dll</HintPath>
-    </Reference>
-    <Reference Include="XONT.VENTURA.SOXLR71.BLL">
-      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.BLL.dll</HintPath>
-    </Reference>
-    <Reference Include="XONT.VENTURA.SOXLR71.DAL">
-      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.DAL.dll</HintPath>
-    </Reference>
-    <Reference Include="XONT.VENTURA.SOXLR71.DOMAIN">
-      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.DOMAIN.dll</HintPath>
-    </Reference>
-    <Reference Include="XONT.VENTURA.SOXLR71.WEB">
-      <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.WEB.dll</HintPath>
     </Reference>
     <Reference Include="Yarp.ReverseProxy">
       <HintPath>..\..\..\bin\Yarp.ReverseProxy.dll</HintPath>

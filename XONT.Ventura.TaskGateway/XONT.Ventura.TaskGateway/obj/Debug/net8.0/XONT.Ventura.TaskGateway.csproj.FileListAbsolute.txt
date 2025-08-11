@@ -43,10 +43,6 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Common.Message.MessageCreate.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Ventura.AppConsole.Domain.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Ventura.Common.ConvertDateTime.dll
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.BLL.dll
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DAL.dll
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DOMAIN.dll
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.WEB.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.MvcApplicationPartsAssemblyInfo.cs
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Azure.Core.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Azure.Identity.dll
@@ -100,7 +96,10 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Common.Data.EncriptDecript.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.sourcelink.json
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.BLL.pdb
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DAL.pdb
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DOMAIN.pdb
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.WEB.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.deps.json
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.runtimeconfig.json
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.staticwebassets.endpoints.json
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

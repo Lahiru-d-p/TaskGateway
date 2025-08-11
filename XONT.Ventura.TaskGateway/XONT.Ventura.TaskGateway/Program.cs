@@ -186,6 +186,24 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapReverseProxy();
 
-app.MapFallbackToFile("/{taskid}/{*path}", "index.html");
+app.MapWhen(context => !context.Request.Path.StartsWithSegments("/api"), subApp =>
+{
+    subApp.UseStaticFiles();
+    subApp.Use(async (context, next) =>
+    {
+        var taskId = context.Request.Path.Value.Split('/')[1];
+        if (!string.IsNullOrEmpty(taskId))
+        {
+            var filePath = Path.Combine(app.Environment.WebRootPath, taskId, "index.html");
+            if (File.Exists(filePath))
+            {
+                context.Response.ContentType = "text/html";
+                await context.Response.SendFileAsync(filePath);
+                return;
+            }
+        }
+        await next();
+    });
+});
 
 app.Run();

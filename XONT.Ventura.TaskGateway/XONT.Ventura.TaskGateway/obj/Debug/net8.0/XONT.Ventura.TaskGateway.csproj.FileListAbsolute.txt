@@ -99,3 +99,8 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Common.Data.EncriptDecript.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.sourcelink.json
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.BLL.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DAL.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.DOMAIN.pdb
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.VENTURA.SOXLR71.WEB.pdb

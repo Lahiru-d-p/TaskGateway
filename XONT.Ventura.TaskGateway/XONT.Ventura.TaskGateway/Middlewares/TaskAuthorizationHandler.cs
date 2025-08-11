@@ -16,7 +16,6 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
 
             if (string.IsNullOrEmpty(taskid))
             {
-                // Not a task-specific route, so we can consider it authorized
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }

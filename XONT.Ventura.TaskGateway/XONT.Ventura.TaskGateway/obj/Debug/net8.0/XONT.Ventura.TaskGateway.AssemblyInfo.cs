@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XONT.Ventura.TaskGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72172bfe12d38481e38681b621f290636e2da68a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b262bccef252681977329c6a4879ef06e2de5f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("XONT.Ventura.TaskGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XONT.Ventura.TaskGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -39,7 +39,7 @@ namespace XONT.Ventura.TaskGateway.BLL
             var stroEncript = new StroEncript();
 
             string encriptPsass = stroEncript.Encript(plainPW.Trim());
-            User user = _authDal.GetUserInfo(plainUN,modal.Password, ref message);
+            User user = _authDal.GetUserInfo(plainUN,encriptPsass, ref message);
 
             if (!string.IsNullOrWhiteSpace(message) || user==null)
             {

@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "XONT.Ventura.TaskGateway",
-    "version": "1.0"
+    "title": "Your API",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/generatetoken": {
@@ -178,7 +178,7 @@
             "type": "string",
             "nullable": true
           },
-          "businessUnit": {
+          "password": {
             "type": "string",
             "nullable": true
           },
@@ -189,6 +189,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer' followed by your token in the text box below.\nExample: Bearer abc123",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

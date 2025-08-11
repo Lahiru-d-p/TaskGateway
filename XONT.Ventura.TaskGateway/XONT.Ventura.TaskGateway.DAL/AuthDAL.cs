@@ -123,11 +123,17 @@ namespace XONT.Ventura.TaskGateway.DAL
                 FROM dbo.ZYBusinessUnit
                 WHERE BusinessUnit = @BusinessUnit";
 
+                    var fallbackParam = new SqlParameter("@BusinessUnit", SqlDbType.NVarChar)
+                    {
+                        Value = businessUnit.Trim()
+                    };
+
                     DataTable dtFallback = _dbHelper.ExecuteQuery(
                         _systemDbConnectionString,
                         fallbackSQL,
-                        new[] { buParam }
+                        new[] { fallbackParam }
                     );
+
 
                     if (dtFallback.Rows.Count > 0)
                     {

@@ -2256,6 +2256,7 @@
       "Swashbuckle.AspNetCore.SwaggerGen >= 8.1.4",
       "Swashbuckle.AspNetCore.SwaggerUI >= 8.1.4",
       "XONT.Ventura.TaskGateway.BLL >= 1.0.0",
+      "XONT.Ventura.TaskGateway.DAL >= 1.0.0",
       "XONT.Ventura.TaskGateway.DOMAIN >= 1.0.0",
       "Yarp.ReverseProxy >= 2.3.0"
     ]
@@ -2294,6 +2295,9 @@
           "projectReferences": {
             "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj": {
               "projectPath": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj"
+            },
+            "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DAL\\XONT.Ventura.TaskGateway.DAL.csproj": {
+              "projectPath": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DAL\\XONT.Ventura.TaskGateway.DAL.csproj"
             },
             "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj": {
               "projectPath": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj"

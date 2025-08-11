@@ -17,10 +17,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XONT.Ventura.TaskGateway.BLL\XONT.Ventura.TaskGateway.BLL.csproj" />
+    <ProjectReference Include="..\XONT.Ventura.TaskGateway.DAL\XONT.Ventura.TaskGateway.DAL.csproj" />
     <ProjectReference Include="..\XONT.Ventura.TaskGateway.DOMAIN\XONT.Ventura.TaskGateway.DOMAIN.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="XONT.Common.Data.EncriptDecript">
+      <HintPath>..\..\..\bin\XONT.Common.Data.EncriptDecript.dll</HintPath>
+    </Reference>
     <Reference Include="XONT.Common.Data.Resource">
       <HintPath>..\..\..\bin\XONT.Common.Data.Resource.dll</HintPath>
     </Reference>
@@ -44,6 +48,9 @@
     </Reference>
     <Reference Include="XONT.VENTURA.SOXLR71.WEB">
       <HintPath>..\..\..\bin\XONT.VENTURA.SOXLR71.WEB.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarp.ReverseProxy">
+      <HintPath>..\..\..\bin\Yarp.ReverseProxy.dll</HintPath>
     </Reference>
   </ItemGroup>
 

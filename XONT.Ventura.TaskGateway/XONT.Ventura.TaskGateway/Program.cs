@@ -173,30 +173,4 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapReverseProxy();
 
-app.MapWhen(context => !context.Request.Path.StartsWithSegments("/api"), subApp =>
-{
-    subApp.UseStaticFiles();
-
-    subApp.Use(async (context, next) =>
-    {
-        var path = context.Request.Path.Value?.Trim('/') ?? "";
-        var segments = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
-
-        if (segments.Length > 0)
-        {
-            var taskId = segments[0].ToLowerInvariant();
-            var indexPath = Path.Combine(app.Environment.WebRootPath, taskId, "index.html");
-
-            if (File.Exists(indexPath))
-            {
-                context.Response.ContentType = "text/html";
-                await context.Response.SendFileAsync(indexPath);
-                return;
-            }
-        }
-
-        await next();
-    });
-});
-
 app.Run();

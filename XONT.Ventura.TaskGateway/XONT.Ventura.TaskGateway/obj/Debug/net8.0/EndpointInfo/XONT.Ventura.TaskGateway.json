@@ -40,10 +40,178 @@
           }
         }
       }
+    },
+    "/api/SOXLR71/GetTerritoryPrompt": {
+      "get": {
+        "tags": [
+          "SOXLR71"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/SOXLR71/GetDistributorPrompt": {
+      "get": {
+        "tags": [
+          "SOXLR71"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/SOXLR71/GenerateExcel": {
+      "post": {
+        "tags": [
+          "SOXLR71"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExcelGenerationSelection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExcelGenerationSelection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExcelGenerationSelection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExcelGenerationSelection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TaskUI/{taskId}/{path}": {
+      "get": {
+        "tags": [
+          "TaskUI"
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "index.html"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ExcelGenerationSelection": {
+        "type": "object",
+        "properties": {
+          "selectionCriteria": {
+            "$ref": "#/components/schemas/Selection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Selection": {
+        "type": "object",
+        "properties": {
+          "businessUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "territoryFlag": {
+            "type": "boolean"
+          },
+          "distributorFlag": {
+            "type": "boolean"
+          },
+          "territoryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "territoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "distributorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "distributorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "distributorVATRegistrationNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "powerUser": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vatFlag": {
+            "type": "boolean"
+          },
+          "nonVATFlag": {
+            "type": "boolean"
+          },
+          "reportSummaryFlag": {
+            "type": "boolean"
+          },
+          "reportDetailFlag": {
+            "type": "boolean"
+          },
+          "imagePath": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserLogin": {
         "type": "object",
         "properties": {

@@ -10,28 +10,35 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
 {
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, TaskAuthorizationRequirement requirement)
     {
-        if (context.Resource is HttpContext httpContext)
+        if (context.HasSucceeded)
         {
-            var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();
+            if (context.Resource is HttpContext httpContext)
+            {
+                var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();
 
-            if (string.IsNullOrEmpty(taskid))
-            {
-                context.Succeed(requirement);
-                return Task.CompletedTask;
-            }
-            List<string> unAuthTaskList = httpContext.Session.GetObject<List<string>>("UnAuthorizedTasks") ?? new List<string>();
-            if (unAuthTaskList == null || !unAuthTaskList.Any())
-            {
-                context.Succeed(requirement);
-                return Task.CompletedTask;
-            }
-            else if (unAuthTaskList.Contains(taskid, StringComparer.OrdinalIgnoreCase))
-            {
-                context.Fail();
+                if (string.IsNullOrEmpty(taskid))
+                {
+                    context.Succeed(requirement);
+                    return Task.CompletedTask;
+                }
+                List<string> unAuthTaskList = httpContext.Session.GetObject<List<string>>("UnAuthorizedTasks") ?? new List<string>();
+                if (unAuthTaskList == null || !unAuthTaskList.Any())
+                {
+                    context.Succeed(requirement);
+                    return Task.CompletedTask;
+                }
+                else if (unAuthTaskList.Contains(taskid, StringComparer.OrdinalIgnoreCase))
+                {
+                    context.Fail();
+                }
+                else
+                {
+                    context.Succeed(requirement);
+                }
             }
             else
             {
-                context.Succeed(requirement);
+                context.Fail();
             }
         }
         else

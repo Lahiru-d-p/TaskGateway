@@ -101,14 +101,14 @@
         }
       }
     },
-    "/api/TaskUI/{taskId}/{path}": {
+    "/api/TaskUI/{taskid}/{path}": {
       "get": {
         "tags": [
           "TaskUI"
         ],
         "parameters": [
           {
-            "name": "taskId",
+            "name": "taskid",
             "in": "path",
             "required": true,
             "schema": {

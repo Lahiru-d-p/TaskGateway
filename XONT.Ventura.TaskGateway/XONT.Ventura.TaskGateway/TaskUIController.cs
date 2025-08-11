@@ -14,13 +14,13 @@ namespace XONT.Ventura.TaskGateway.Controllers
             _env = env;
         }
 
-        [HttpGet("{taskId}/{**path}")]
-        public async Task<IActionResult> Get(string taskId, string path = "index.html")
+        [HttpGet("{taskid}/{**path}")]
+        public async Task<IActionResult> Get(string taskid, string path = "index.html")
         {
             if (string.IsNullOrEmpty(path) || path.EndsWith("/"))
-                path = "index.html";
+                path = path??""+"index.html";
 
-            var filePath = Path.Combine(_env.WebRootPath, taskId, path);
+            var filePath = Path.Combine(_env.WebRootPath, taskid, path);
 
             if (!filePath.StartsWith(_env.WebRootPath) || !System.IO.File.Exists(filePath))
                 return NotFound();

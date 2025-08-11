@@ -10,8 +10,7 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
 {
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, TaskAuthorizationRequirement requirement)
     {
-        if (context.HasSucceeded)
-        {
+        
             if (context.Resource is HttpContext httpContext)
             {
                 var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();
@@ -40,11 +39,7 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
             {
                 context.Fail();
             }
-        }
-        else
-        {
-            context.Fail();
-        }
+        
 
         return Task.CompletedTask;
     }

@@ -46,9 +46,6 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-builder.Services.AddReverseProxy()
-    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
-
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddDistributedMemoryCache();
@@ -164,13 +161,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseSession();
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapReverseProxy();
 
 app.Run();

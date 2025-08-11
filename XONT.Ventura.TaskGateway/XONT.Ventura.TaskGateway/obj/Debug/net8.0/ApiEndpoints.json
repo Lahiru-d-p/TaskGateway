@@ -54,13 +54,13 @@
   {
     "ContainingType": "XONT.Ventura.TaskGateway.Controllers.TaskUIController",
     "Method": "Get",
-    "RelativePath": "api/TaskUI/{taskId}/{path}",
+    "RelativePath": "api/TaskUI/{taskid}/{path}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "taskId",
+        "Name": "taskid",
         "Type": "System.String",
         "IsRequired": true
       },

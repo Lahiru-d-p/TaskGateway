@@ -1,6 +1,6 @@
 wwwroot\SOXLR71\index.html
 wwwroot\SOXLR71\logo.jpg
-wwwroot\SOXLR71\main-2RARHLIO.js
+wwwroot\SOXLR71\main-LU2X2ON2.js
 wwwroot\SOXLR71\media\fa-brands-400-Q3XCMWHQ.woff2
 wwwroot\SOXLR71\media\fa-brands-400-R2XQZCET.ttf
 wwwroot\SOXLR71\media\fa-regular-400-QSNYFYRT.woff2

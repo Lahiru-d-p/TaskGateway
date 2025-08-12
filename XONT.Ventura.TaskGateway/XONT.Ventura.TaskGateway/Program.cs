@@ -56,30 +56,6 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.IncludeErrorDetails = true;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-    });
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("TaskAccess", policy =>
-        policy.RequireAuthenticatedUser().AddRequirements(new TaskAuthorizationRequirement()));
-});
-
 builder.Services.AddSingleton<IAuthorizationHandler, TaskAuthorizationHandler>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped< AuthDAL>();
@@ -148,6 +124,33 @@ foreach (var assembly in loadedAssemblies)
     }
 }
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.IncludeErrorDetails = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("TaskAccess", policy =>
+        policy.RequireAuthenticatedUser().AddRequirements(new TaskAuthorizationRequirement()));
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                               .RequireAuthenticatedUser()
+                               .AddRequirements(new TaskAuthorizationRequirement())
+                               .Build();
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

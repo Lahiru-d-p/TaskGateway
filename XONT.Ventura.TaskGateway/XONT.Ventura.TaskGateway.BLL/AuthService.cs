@@ -67,11 +67,11 @@ namespace XONT.Ventura.TaskGateway.BLL
 
             var sessionIdCore = httpContext.Session.Id;
             //httpContext.Session.SetString("SessionID",SessionID);
-            httpContext.Session.SetString("SessionIDCore", sessionIdCore);
-            httpContext.Session.SetString("Theme",user.Theme);
-            httpContext.Session.SetInt32("Main_Language", SetDefaultLanguage(ref user));
-            httpContext.Session.SetString("Main_UserName",user.UserName);
-            httpContext.Session.SetString("Main_BusinessUnit", user.BusinessUnit);
+            httpContext.Session.SetObject<string>("SessionIDCore", sessionIdCore);
+            httpContext.Session.SetObject<string>("Theme",user.Theme ??"Blue");
+            httpContext.Session.SetObject<Int32>("Main_Language", SetDefaultLanguage(ref user));
+            httpContext.Session.SetObject<string>("Main_UserName",user.UserName);
+            httpContext.Session.SetObject<string>("Main_BusinessUnit", user.BusinessUnit);
             httpContext.Session.SetObject<User>("Main_LoginUser", user);
             httpContext.Session.SetObject<BusinessUnit>("Main_BusinessUnitDetail", businessUnit);
             httpContext.Session.SetObject<List<string>>("UnAuthorizedTasks", unAuthorizedTasks);

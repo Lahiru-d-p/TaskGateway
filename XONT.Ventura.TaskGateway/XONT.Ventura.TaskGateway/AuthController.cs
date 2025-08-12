@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using XONT.Ventura.TaskGateway.BLL;
 using XONT.Ventura.TaskGateway.DOMAIN;
 
 namespace XONT.Ventura.TaskGateway;
-[Route("api/[controller]")]
 [ApiController]
+[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
@@ -13,7 +14,7 @@ public class AuthController : ControllerBase
     {
         _authService = authService;
     }
-
+    [AllowAnonymous]
     [HttpPost("generatetoken")]
     public IActionResult GenerateToken([FromBody] UserLogin model)
     {

@@ -41,6 +41,18 @@
         }
       }
     },
+    "/api/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/SOXLR71/GetTerritoryPrompt": {
       "get": {
         "tags": [
@@ -230,7 +242,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Enter 'Bearer' followed by your token\nExample: Bearer abc123",
+        "description": "Enter Bearer token",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }

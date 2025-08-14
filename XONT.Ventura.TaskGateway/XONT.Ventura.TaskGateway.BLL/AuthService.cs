@@ -91,7 +91,7 @@ namespace XONT.Ventura.TaskGateway.BLL
             var token = new JwtSecurityToken(_jwtSettings.Issuer,
               _jwtSettings.Audience,
               claims,
-              expires: DateTime.UtcNow.AddMinutes(_jwtSettings.ExpireMinutes),
+              expires: DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpirationMinutes),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

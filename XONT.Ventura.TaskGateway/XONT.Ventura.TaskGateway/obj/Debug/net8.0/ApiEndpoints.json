@@ -16,6 +16,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "XONT.Ventura.TaskGateway.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "XONT.VENTURA.SOXLR71.SOXLR71Controller",
     "Method": "GenerateExcel",
     "RelativePath": "api/SOXLR71/GenerateExcel",

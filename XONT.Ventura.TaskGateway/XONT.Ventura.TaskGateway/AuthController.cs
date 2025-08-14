@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using XONT.Ventura.TaskGateway.BLL;
 using XONT.Ventura.TaskGateway.DOMAIN;
 
@@ -18,10 +19,49 @@ public class AuthController : ControllerBase
     [HttpPost("generatetoken")]
     public IActionResult GenerateToken([FromBody] UserLogin model)
     {
-        string message = string.Empty;
-        string token = _authService.GenerateToken(model,ref message);
-
-        return Ok(new { Token = token });
+        UserLoginResponse response = new UserLoginResponse();
+        try
+        {
+            string message = string.Empty;
+            string token = _authService.GenerateToken(model, ref message);
+            
+            if(string.IsNullOrWhiteSpace(token) || !string.IsNullOrWhiteSpace(message))
+            {
+                response.Message = message ?? "Token Generation Failed";
+                return Unauthorized(response);
+            }
+            else
+            {
+                response.Token = token;
+                response.Message = "Token generated successfully.";
+                return Ok(response);
+            }
+        }
+        catch (Exception ex)
+        {
+            response.Message = $"An error occurred while generating the token : {ex.Message}";
+            return StatusCode(StatusCodes.Status500InternalServerError, response);
+        }
     }
 
+    [Authorize]
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        try
+        {
+            if (HttpContext == null)
+            {
+                return BadRequest(new  { Message= "HTTP context is unavailable." });
+            }
+
+            HttpContext.Session.Clear();
+
+            return Ok(new { Message = "Logout successful. Please discard your token." });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, new { Message = $"Logout failed: {ex.Message}" });
+        }
+    }
 }

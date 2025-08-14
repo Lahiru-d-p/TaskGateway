@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XONT.Ventura.TaskGateway.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42360ee31a745139515187dd294e0f4f87941472")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa0f838fed299735e133ac5989f69558d54af65c")]
 [assembly: System.Reflection.AssemblyProductAttribute("XONT.Ventura.TaskGateway.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XONT.Ventura.TaskGateway.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

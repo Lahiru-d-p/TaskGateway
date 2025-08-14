@@ -512,16 +512,16 @@
         },
         "runtime": {
           "XONT.Ventura.TaskGateway.DAL.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
           }
         }
       },
       "XONT.Ventura.TaskGateway.DOMAIN/1.0.0": {
         "runtime": {
           "XONT.Ventura.TaskGateway.DOMAIN.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
           }
         }
       },

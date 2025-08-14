@@ -62,7 +62,7 @@ builder.Services.AddScoped< AuthDAL>();
 builder.Services.AddScoped<DBHelper>();
 builder.Services.AddHttpContextAccessor();
 
-var pluginPath = Path.Combine("E:/LahiruDilshan", "TaskDlls");
+var pluginPath = Path.Combine(AppContext.BaseDirectory, "TaskDlls");
 var loadedAssemblies = new List<Assembly>();
 
 if (Directory.Exists(pluginPath))

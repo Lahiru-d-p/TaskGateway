@@ -95,7 +95,6 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.build.json.cache
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.development.json
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ven.27066862.Up2Date
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\refint\XONT.Ventura.TaskGateway.dll

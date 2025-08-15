@@ -17,9 +17,9 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
             {
                 httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
                 httpContext.Response.WriteAsync("Unauthorized: Session or user data missing.").ConfigureAwait(false).GetAwaiter().GetResult();
-                context.Fail(); 
+                context.Fail();
                 return Task.CompletedTask;
-            
+
             }
 
             var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();

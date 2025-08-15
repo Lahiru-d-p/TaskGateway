@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,13 +17,15 @@ namespace XONT.Ventura.TaskGateway.DAL
         private readonly string _userDbConnectionString;
         private readonly string _systemDbConnectionString;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AuthDAL> _logger;
 
-        public AuthDAL(DBHelper dbHelper, IConfiguration configuration)
+        public AuthDAL(DBHelper dbHelper, IConfiguration configuration,ILogger<AuthDAL> logger)
         {
             _configuration = configuration;
             _userDbConnectionString = _configuration.GetConnectionString("UserDB")??"";
             _systemDbConnectionString = _configuration.GetConnectionString("SystemDB")??"";
             _dbHelper = dbHelper;
+            _logger = logger;
         }
 
         public BusinessUnit GetBusinessUnit(string businessUnit, string distributorCode, ref string message)
@@ -277,6 +280,7 @@ namespace XONT.Ventura.TaskGateway.DAL
             catch (Exception ex)
             {
                 message = $"GetUserMainData / {ex.Message}";
+                _logger.LogError(ex, message);
                 return null;
             }
         }
@@ -332,6 +336,7 @@ namespace XONT.Ventura.TaskGateway.DAL
             catch (Exception ex)
             {
                 message = $"GetUserRoles {ex.Message}";
+                _logger.LogError(ex, message);
             }
         }
 
@@ -357,6 +362,7 @@ namespace XONT.Ventura.TaskGateway.DAL
             catch (Exception ex)
             {
                 message = $"GetUnAuthorizedTasks / {ex.Message}";
+                _logger.LogError(ex, message);
                 return new DataTable();
             }
         }

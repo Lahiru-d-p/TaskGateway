@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Reflection;
 using System.Runtime.Loader;
 using System.Text;
@@ -9,9 +10,21 @@ using XONT.Ventura.TaskGateway;
 using XONT.Ventura.TaskGateway.BLL;
 using XONT.Ventura.TaskGateway.DAL;
 using XONT.Ventura.TaskGateway.DOMAIN;
+using XONT.Ventura.TaskGateway.Infrastructure;
+using XONT.Ventura.TaskGateway.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#region Configure Logging
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+#endregion
+
+#region Configure Controllers and JSON
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
     {
@@ -19,17 +32,24 @@ builder.Services.AddControllers()
         options.SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
     });
 
+#endregion
+
+#region Configure CORS
+var appConsoleOrigin = builder.Configuration["AppConsoleOrigin"] ??"";
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAppConsole", policy =>
     {
-        policy.WithOrigins(builder.Configuration["AppConsoleOrigin"]) 
+        policy.WithOrigins(appConsoleOrigin)
               .AllowAnyHeader()
-              .AllowAnyMethod() 
+              .AllowAnyMethod()
               .AllowCredentials();
     });
 });
+#endregion
 
+#region Configure Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Task Gateway API", Version = "v1" });
@@ -58,8 +78,9 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+#endregion
 
+#region Configure session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -67,74 +88,32 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+#endregion
 
+#region Register services
 builder.Services.AddSingleton<IAuthorizationHandler, TaskAuthorizationHandler>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AuthDAL>();
 builder.Services.AddScoped<DBHelper>();
 builder.Services.AddHttpContextAccessor();
+#endregion
 
-var pluginPath = Path.Combine(AppContext.BaseDirectory, "TaskDlls");
-var loadedAssemblies = new List<Assembly>();
-
-if (Directory.Exists(pluginPath))
+#region Load Plugin Assemblies
+try
 {
-
-    foreach (var dllPath in Directory.GetFiles(pluginPath, "*.dll"))
-    {
-        try
-        {
-            var assemblyName = AssemblyLoadContext.GetAssemblyName(dllPath);
-            var assembly = Assembly.LoadFrom(dllPath);
-            loadedAssemblies.Add(assembly);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Failed to load {dllPath}: {ex.Message}");
-        }
-    }
+    var pluginPath = Path.Combine(AppContext.BaseDirectory, "TaskDlls");
+    PluginLoader.LoadAssembliesAndRegisterServices(builder.Services, pluginPath);
 }
-else
+catch (Exception ex)
 {
-    Console.WriteLine($"Plugin folder not found: {pluginPath}. No plugins loaded.");
+    Log.Logger.Error(ex, "Failed to load plugin assemblies.");
 }
-foreach (var assembly in loadedAssemblies)
-{
-    var assemblyName = assembly.GetName().Name;
+#endregion
 
-    if (assemblyName.EndsWith(".Web", StringComparison.OrdinalIgnoreCase))
-    {
-        builder.Services.AddControllers().AddApplicationPart(assembly);
-        continue;
-    }
-    if (!assemblyName.EndsWith(".BLL", StringComparison.OrdinalIgnoreCase) &&
-        !assemblyName.EndsWith(".DAL", StringComparison.OrdinalIgnoreCase))
-    {
-        continue;
-    }
+#region Configure authentication & Authorization
+var jwtSettings = builder.Configuration.GetRequiredSection("Jwt").Get<JwtSettings>();
 
-    var types = assembly.GetTypes()
-        .Where(t => t.IsClass &&
-                    !t.IsAbstract &&
-                    !t.IsInterface)
-        .ToList();
-
-    foreach (var type in types)
-    {
-        if (type.Name.StartsWith("<") || string.IsNullOrEmpty(type.Name)) continue;
-
-        var serviceInterface = type.GetInterface($"I{type.Name}");
-
-        if (serviceInterface != null)
-        {
-            builder.Services.AddScoped(serviceInterface, type);
-        }
-        else
-        {
-            builder.Services.AddScoped(type);
-        }
-    }
-}
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetRequiredSection("Jwt"));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -148,11 +127,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
         };
     });
+
 
 builder.Services.AddAuthorization(options =>
 {
@@ -163,6 +143,8 @@ builder.Services.AddAuthorization(options =>
                                .AddRequirements(new TaskAuthorizationRequirement())
                                .Build();
 });
+#endregion
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -174,8 +156,9 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseCors("AllowAppConsole");
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
+app.UseCors("AllowAppConsole");
 app.UseRouting();
 
 app.UseSession();
@@ -183,5 +166,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapFallback(() =>
+    Results.Json(new { Message = "Endpoint not found." }, statusCode: 404));
 
 app.Run();

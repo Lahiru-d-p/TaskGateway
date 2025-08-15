@@ -1,16 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Reflection;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using XONT.Common.Data;
 using XONT.Ventura.AppConsole;
 using XONT.Ventura.TaskGateway.DAL;
@@ -24,13 +20,15 @@ namespace XONT.Ventura.TaskGateway.BLL
         private readonly AuthDAL _authDal;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AuthService> _logger;
 
-        public AuthService(IOptions<JwtSettings> jwtSettings,AuthDAL authDAL, IHttpContextAccessor httpContextAccessor,IConfiguration configuration)
+        public AuthService(IOptions<JwtSettings> jwtSettings,AuthDAL authDAL, IHttpContextAccessor httpContextAccessor,IConfiguration configuration,ILogger<AuthService> logger)
         {
             _jwtSettings = jwtSettings.Value;
             _authDal = authDAL;
             _httpContextAccessor = httpContextAccessor;
             _configuration = configuration;
+            _logger = logger;
         }
 
         public bool ValidateApiKey(string key, ref string message)
@@ -39,12 +37,12 @@ namespace XONT.Ventura.TaskGateway.BLL
             var expectedApiKey = _configuration["AppConsoleApiKey"];
             if (string.IsNullOrWhiteSpace(expectedApiKey))
             {
-                System.Diagnostics.Trace.TraceError("Error: Api Key not configured in Task Gateway.");
+                _logger.LogError("ERROR : Api Key not configured in Task Gateway");
                 message = "V4 Task Gateway Server configuration error.";
             }
             else if (string.IsNullOrWhiteSpace(key) || !string.Equals(key, expectedApiKey, StringComparison.Ordinal))
             {
-                System.Diagnostics.Trace.TraceError($"Unauthorized access attempt to GenerateToken. Invalid or missing API Key. Provided: '{key}'");
+                _logger.LogError($"ERROR : Unauthorized access attempt to GenerateToken. Invalid or missing API Key. Provided: '{key}'");
                 message = "Invalid API Key.";
             }
             else

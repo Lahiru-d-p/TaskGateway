@@ -10,10 +10,12 @@ namespace XONT.Ventura.TaskGateway.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
+    private readonly ILogger<AuthController> _logger;
 
-    public AuthController(IAuthService authService)
+    public AuthController(IAuthService authService, ILogger<AuthController> logger)
     {
         _authService = authService;
+        _logger = logger;
     }
     [AllowAnonymous]
     [HttpPost("generatetoken")]
@@ -47,7 +49,8 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
-            response.Message = $"An error occurred while Authorization : {ex.Message}";
+            response.Message = $"An error occurred while Authorization ";
+            _logger.LogError(ex, response.Message);
             return StatusCode(StatusCodes.Status500InternalServerError, response);
         }
     }
@@ -68,6 +71,7 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "An unhandled exception occurred while processing logout");
             return StatusCode(StatusCodes.Status500InternalServerError, new { Message = $"Logout failed: {ex.Message}" });
         }
     }

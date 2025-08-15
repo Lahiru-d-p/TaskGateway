@@ -1,4 +1,5 @@
-﻿namespace XONT.Ventura.TaskGateway.DOMAIN
+﻿
+namespace XONT.Ventura.TaskGateway.DOMAIN
 {
     public class JwtSettings
     {

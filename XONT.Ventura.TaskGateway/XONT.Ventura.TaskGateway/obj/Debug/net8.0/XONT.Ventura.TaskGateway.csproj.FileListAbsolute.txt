@@ -99,3 +99,13 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.genruntimeconfig.cache
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\ref\XONT.Ventura.TaskGateway.dll
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.AspNetCore.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Serilog.Sinks.File.dll

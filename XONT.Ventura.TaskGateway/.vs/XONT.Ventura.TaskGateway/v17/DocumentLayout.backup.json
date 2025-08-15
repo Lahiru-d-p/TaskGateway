@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\middlewares\\globalexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\middlewares\\globalexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98BCFF71-25B2-41A8-8AC9-35C691407C4A}|XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.bll\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98BCFF71-25B2-41A8-8AC9-35C691407C4A}|XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj|solutionrelative:xont.ventura.taskgateway.bll\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD03E52B-DAE0-4B77-BB11-03F58ECF744B}|XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.domain\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD03E52B-DAE0-4B77-BB11-03F58ECF744B}|XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj|solutionrelative:xont.ventura.taskgateway.domain\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98BCFF71-25B2-41A8-8AC9-35C691407C4A}|XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.bll\\xont.ventura.taskgateway.bll.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{98BCFF71-25B2-41A8-8AC9-35C691407C4A}|XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj|solutionrelative:xont.ventura.taskgateway.bll\\xont.ventura.taskgateway.bll.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\xont.ventura.taskgateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD03E52B-DAE0-4B77-BB11-03F58ECF744B}|XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.domain\\xont.ventura.taskgateway.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -35,8 +15,20 @@
       "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\middlewares\\taskauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\middlewares\\globalexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\middlewares\\globalexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|solutionrelative:xont.ventura.taskgateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD03E52B-DAE0-4B77-BB11-03F58ECF744B}|XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway.domain\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD03E52B-DAE0-4B77-BB11-03F58ECF744B}|XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj|solutionrelative:xont.ventura.taskgateway.domain\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2EA9FD5B-C3FA-46C0-B5B0-22C3C73BE8E2}|XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj|e:\\lahirudilshan\\2025-08-01 two apps for upgrade\\taskgateway\\xont.ventura.taskgateway\\xont.ventura.taskgateway\\infrastructure\\pluginloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,98 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JwtSettings.cs",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T09:31:32.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "XONT.Ventura.TaskGateway",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-15T09:43:22.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AuthService.cs",
               "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\AuthService.cs",
               "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway.BLL\\AuthService.cs",
               "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\AuthService.cs",
               "RelativeToolTip": "XONT.Ventura.TaskGateway.BLL\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAcwH0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T09:05:15.404Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Program.cs",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Program.cs",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Program.cs",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Program.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIMAAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T09:05:15.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GlobalExceptionHandlingMiddleware.cs",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAUwBQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T09:49:22.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "XONT.Ventura.TaskGateway.BLL",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-15T09:58:54.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TaskAuthorizationHandler.cs",
-              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
-              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
-              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
-              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T09:43:50.8Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "XONT.Ventura.TaskGateway.DOMAIN",
               "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj",
               "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway.DOMAIN\\XONT.Ventura.TaskGateway.DOMAIN.csproj",
@@ -166,20 +80,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "TaskAuthorizationHandler.cs",
+              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
+              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
+              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
+              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Middlewares\\TaskAuthorizationHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAawAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T09:43:50.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GlobalExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
+              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Middlewares\\GlobalExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T09:49:22.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Program.cs",
+              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Program.cs",
+              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Program.cs",
+              "RelativeToolTip": "XONT.Ventura.TaskGateway\\Program.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAgwIQAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T09:05:15.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\appsettings.json",
               "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\appsettings.json",
               "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\appsettings.json",
               "RelativeToolTip": "XONT.Ventura.TaskGateway\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-08-15T09:44:25.63Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
+              "ToolTip": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
+              "RelativeToolTip": "XONT.Ventura.TaskGateway.DOMAIN\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T09:31:32.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "PluginLoader.cs",
               "DocumentMoniker": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway\\Infrastructure\\PluginLoader.cs",
               "RelativeDocumentMoniker": "XONT.Ventura.TaskGateway\\Infrastructure\\PluginLoader.cs",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tlnLNsShB08=",
+  "dgSpecHash": "9jeRILM4p8o=",
   "success": true,
   "projectFilePath": "E:\\LahiruDilshan\\2025-08-01 Two apps for upgrade\\TaskGateway\\XONT.Ventura.TaskGateway\\XONT.Ventura.TaskGateway.BLL\\XONT.Ventura.TaskGateway.BLL.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,7 @@
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identity.client\\4.61.3\\microsoft.identity.client.4.61.3.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.61.3\\microsoft.identity.client.extensions.msal.4.61.3.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.13.0\\microsoft.identitymodel.abstractions.8.13.0.nupkg.sha512",
-    "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.0\\microsoft.identitymodel.jsonwebtokens.7.5.0.nupkg.sha512",
+    "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.13.0\\microsoft.identitymodel.jsonwebtokens.8.13.0.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.logging\\8.13.0\\microsoft.identitymodel.logging.8.13.0.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.5.0\\microsoft.identitymodel.protocols.7.5.0.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.5.0\\microsoft.identitymodel.protocols.openidconnect.7.5.0.nupkg.sha512",
@@ -51,7 +51,7 @@
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.1\\system.configuration.configurationmanager.8.0.1.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.1\\system.diagnostics.eventlog.8.0.1.nupkg.sha512",
-    "C:\\Users\\Lahiru\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.0\\system.identitymodel.tokens.jwt.7.5.0.nupkg.sha512",
+    "C:\\Users\\Lahiru\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.13.0\\system.identitymodel.tokens.jwt.8.13.0.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\Lahiru\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

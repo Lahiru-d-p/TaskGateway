@@ -32,6 +32,10 @@ namespace XONT.Ventura.TaskGateway.Middlewares
         }
         private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            if (context.Response.HasStarted)
+            {
+                return;
+            }
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Response.ContentType = "application/json";
 

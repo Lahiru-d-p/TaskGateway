@@ -13,15 +13,6 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
 
         if (context.Resource is HttpContext httpContext)
         {
-            if (httpContext.Session == null || !httpContext.Session.Keys.Contains("Main_LoginUser"))
-            {
-                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                httpContext.Response.WriteAsync("Unauthorized: Session or user data missing.").ConfigureAwait(false).GetAwaiter().GetResult();
-                context.Fail();
-                return Task.CompletedTask;
-
-            }
-
             var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();
             var controller = httpContext.Request.RouteValues["controller"]?.ToString();
             string? task = (taskid ?? controller)?.Trim();

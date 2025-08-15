@@ -117,22 +117,23 @@ var jwtSettings = builder.Configuration.GetRequiredSection("Jwt").Get<JwtSetting
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetRequiredSection("Jwt"));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.IncludeErrorDetails = true;
-        options.TokenValidationParameters = new TokenValidationParameters
+    .AddScheme<JwtBearerOptions, JwtWithSessionAuthenticationHandler>(
+        JwtBearerDefaults.AuthenticationScheme, options =>
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtSettings.Issuer,
-            ValidAudience = jwtSettings.Audience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
-        };       
-    });
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+            options.IncludeErrorDetails = true;
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = jwtSettings.Issuer,
+                ValidAudience = jwtSettings.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+            };
+        });
 
 
 builder.Services.AddAuthorization(options =>
@@ -164,7 +165,6 @@ app.UseRouting();
 
 app.UseSession();
 app.UseAuthentication();
-app.UseMiddleware<SessionValidationMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();

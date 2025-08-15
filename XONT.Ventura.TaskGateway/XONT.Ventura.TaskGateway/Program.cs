@@ -18,6 +18,18 @@ builder.Services.AddControllers()
         options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
         options.SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
     });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAppConsole", policy =>
+    {
+        policy.WithOrigins(builder.Configuration["AppConsoleOrigin"]) 
+              .AllowAnyHeader()
+              .AllowAnyMethod() 
+              .AllowCredentials();
+    });
+});
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Task Gateway API", Version = "v1" });
@@ -58,7 +70,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddSingleton<IAuthorizationHandler, TaskAuthorizationHandler>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped< AuthDAL>();
+builder.Services.AddScoped<AuthDAL>();
 builder.Services.AddScoped<DBHelper>();
 builder.Services.AddHttpContextAccessor();
 
@@ -162,6 +174,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("AllowAppConsole");
 app.UseHttpsRedirection();
 app.UseRouting();
 

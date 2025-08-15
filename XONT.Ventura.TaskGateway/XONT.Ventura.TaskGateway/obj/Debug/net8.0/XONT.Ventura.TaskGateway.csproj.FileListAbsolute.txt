@@ -1,8 +1,5 @@
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\appsettings.Development.json
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\appsettings.json
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.deps.json
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.runtimeconfig.json
-E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\Plugins\XONT.VENTURA.SOXLR71.WEB.staticwebassets.endpoints.json
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Ventura.TaskGateway.staticwebassets.runtime.json
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Ventura.TaskGateway.staticwebassets.endpoints.json
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\bin\Debug\net8.0\XONT.Ventura.TaskGateway.exe
@@ -101,3 +98,4 @@ E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGa
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.pdb
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\XONT.Ventura.TaskGateway.genruntimeconfig.cache
 E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\ref\XONT.Ventura.TaskGateway.dll
+E:\LahiruDilshan\2025-08-01 Two apps for upgrade\TaskGateway\XONT.Ventura.TaskGateway\XONT.Ventura.TaskGateway\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

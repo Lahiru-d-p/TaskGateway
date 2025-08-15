@@ -13,18 +13,29 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
 
         if (context.Resource is HttpContext httpContext)
         {
+            if (httpContext.Session == null || !httpContext.Session.Keys.Contains("Main_LoginUser"))
+            {
+                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                httpContext.Response.WriteAsync("Unauthorized: Session or user data missing.").ConfigureAwait(false).GetAwaiter().GetResult();
+                context.Fail(); 
+                return Task.CompletedTask;
+            
+            }
+
             var taskid = httpContext.Request.RouteValues["taskid"]?.ToString();
             var controller = httpContext.Request.RouteValues["controller"]?.ToString();
+            string? task = (taskid ?? controller)?.Trim();
 
-            if (string.IsNullOrWhiteSpace(taskid) && string.IsNullOrWhiteSpace(controller))
+            if (string.IsNullOrWhiteSpace(task))
             {
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
-            List<string> unAuthTaskList = httpContext.Session.GetObject<List<string>>("UnAuthorizedTasks") ?? new List<string>();
-            string task = string.IsNullOrWhiteSpace(taskid) ? controller.Trim() : taskid.Trim();
 
-            if (unAuthTaskList == null || !unAuthTaskList.Any())
+            List<string> unAuthTaskList = httpContext.Session.GetObject<List<string>>("UnAuthorizedTasks") ?? new List<string>();
+
+
+            if (!unAuthTaskList.Any())
             {
                 context.Succeed(requirement);
                 return Task.CompletedTask;
@@ -32,18 +43,20 @@ public class TaskAuthorizationHandler : AuthorizationHandler<TaskAuthorizationRe
             else if (unAuthTaskList.Contains(task, StringComparer.OrdinalIgnoreCase))
             {
                 context.Fail();
+                return Task.CompletedTask;
             }
             else
             {
                 context.Succeed(requirement);
+                return Task.CompletedTask;
             }
         }
         else
         {
             context.Fail();
+            return Task.CompletedTask;
         }
 
 
-        return Task.CompletedTask;
     }
 }

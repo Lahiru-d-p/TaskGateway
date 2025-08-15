@@ -20,8 +20,8 @@ namespace XONT.Ventura.TaskGateway.DAL
         public AuthDAL(DBHelper dbHelper, IConfiguration configuration)
         {
             _configuration = configuration;
-            _userDbConnectionString = _configuration.GetConnectionString("UserDB");
-            _systemDbConnectionString = _configuration.GetConnectionString("SystemDB");
+            _userDbConnectionString = _configuration.GetConnectionString("UserDB")??"";
+            _systemDbConnectionString = _configuration.GetConnectionString("SystemDB")??"";
             _dbHelper = dbHelper;
         }
 

@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "XONT.Ventura.TaskGateway.AuthController",
+    "ContainingType": "XONT.Ventura.TaskGateway.Controllers.AuthController",
     "Method": "GenerateToken",
     "RelativePath": "api/Auth/generatetoken",
     "HttpMethod": "POST",
@@ -16,7 +16,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XONT.Ventura.TaskGateway.AuthController",
+    "ContainingType": "XONT.Ventura.TaskGateway.Controllers.AuthController",
     "Method": "Logout",
     "RelativePath": "api/Auth/logout",
     "HttpMethod": "POST",

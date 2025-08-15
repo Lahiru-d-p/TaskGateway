@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -22,127 +23,157 @@ namespace XONT.Ventura.TaskGateway.BLL
         private readonly JwtSettings _jwtSettings;
         private readonly AuthDAL _authDal;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(IOptions<JwtSettings> jwtSettings,AuthDAL authDAL, IHttpContextAccessor httpContextAccessor)
+        public AuthService(IOptions<JwtSettings> jwtSettings,AuthDAL authDAL, IHttpContextAccessor httpContextAccessor,IConfiguration configuration)
         {
             _jwtSettings = jwtSettings.Value;
             _authDal = authDAL;
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
         }
 
-        public string GenerateToken(UserLogin modal, ref string message)
+        public bool ValidateApiKey(string key, ref string message)
         {
+            bool valid = false;
+            var expectedApiKey = _configuration["AppConsoleApiKey"];
+            if (string.IsNullOrWhiteSpace(expectedApiKey))
+            {
+                System.Diagnostics.Trace.TraceError("Error: Api Key not configured in Task Gateway.");
+                message = "V4 Task Gateway Server configuration error.";
+            }
+            else if (string.IsNullOrWhiteSpace(key) || !string.Equals(key, expectedApiKey, StringComparison.Ordinal))
+            {
+                System.Diagnostics.Trace.TraceError($"Unauthorized access attempt to GenerateToken. Invalid or missing API Key. Provided: '{key}'");
+                message = "Invalid API Key.";
+            }
+            else
+            {
+                valid = true;
+            }
+            return valid;
 
-            string plainUN = AESEncrytDecry.DecryptStringAES(modal.UserName);
-            string plainPW = AESEncrytDecry.DecryptStringAES(modal.Password);
-
-            var stroEncript = new StroEncript();
-
-            string encriptPsass = stroEncript.Encript(plainPW.Trim());
-            User user = _authDal.GetUserInfo(plainUN,encriptPsass, ref message);
-
+        }
+        public string GenerateToken(UserLogin model, ref string message)
+        {
+            var user = AuthenticateUser(model, ref message);
             if (!string.IsNullOrWhiteSpace(message) || user==null)
             {
                 return string.Empty;
             }
-            var unAuthorizedTasks = GetUnAuthorizedTasksForUser(modal.UserName, ref message);
+            var unAuthorizedTasks = GetUnAuthorizedTasksForUser(model.UserName, ref message);
 
             if (!string.IsNullOrWhiteSpace(message))
             {
                 return string.Empty;
             }
 
-            BusinessUnit businessUnit = _authDal.GetBusinessUnit(user.BusinessUnit,user.DistributorCode, ref message);
-
-            if (!string.IsNullOrWhiteSpace(message) || businessUnit == null )
-            {
+            var businessUnit = GetBusinessUnit(user, ref message);
+            if (businessUnit == null || !string.IsNullOrWhiteSpace(message))
                 return string.Empty;
-            }
+
             var httpContext = _httpContextAccessor.HttpContext;
             if (httpContext == null)
             {
-                message = "HTTP context is unavailable.";
                 return string.Empty;
             }
 
-            var sessionIdCore = httpContext.Session.Id;
-            //httpContext.Session.SetString("SessionID",SessionID);
-            httpContext.Session.SetObject<string>("SessionIDCore", sessionIdCore);
-            httpContext.Session.SetObject<string>("Theme",user.Theme ??"Blue");
-            httpContext.Session.SetObject<Int32>("Main_Language", SetDefaultLanguage(ref user));
-            httpContext.Session.SetObject<string>("Main_UserName",user.UserName);
-            httpContext.Session.SetObject<string>("Main_BusinessUnit", user.BusinessUnit);
-            httpContext.Session.SetObject<User>("Main_LoginUser", user);
-            httpContext.Session.SetObject<BusinessUnit>("Main_BusinessUnitDetail", businessUnit);
-            httpContext.Session.SetObject<List<string>>("UnAuthorizedTasks", unAuthorizedTasks);
+            var sessionId = httpContext.Session.Id;
+            SetSessionData(httpContext, user, businessUnit, unAuthorizedTasks);
 
+            var token = BuildJwtToken(user, sessionId);
+            return token;
+
+        }
+
+        #region Helper Methods
+
+        private User AuthenticateUser(UserLogin model, ref string message)
+        {
+            string username = AESEncrytDecry.DecryptStringAES(model.UserName);
+            string password = AESEncrytDecry.DecryptStringAES(model.Password);
+            string encryptedPassword = new StroEncript().Encript(password.Trim());
+
+            return _authDal.GetUserInfo(username, encryptedPassword, ref message);
+        }
+
+        private List<string> GetUnAuthorizedTasksForUser(string userName, ref string message)
+        {
+            var dt = _authDal.GetUnAuthorizedTasks(userName, ref message);
+            if (dt == null || dt.Rows.Count == 0 || !string.IsNullOrWhiteSpace(message))
+                return new List<string>();
+            if (!dt.Columns.Contains("TaskCode"))
+                return new List<string>();
+            return dt.AsEnumerable()
+                    .Where(row => !string.IsNullOrWhiteSpace(row["TaskCode"]?.ToString() ?? ""))
+                    .Select(row => row["TaskCode"]?.ToString() ??"")
+                    .ToList();
+        }
+
+        private BusinessUnit GetBusinessUnit(User user, ref string message)
+        {
+            return _authDal.GetBusinessUnit(user.BusinessUnit, user.DistributorCode, ref message);
+        }
+
+        private void SetSessionData(HttpContext context, User user, BusinessUnit businessUnit, List<string> unauthorizedTasks)
+        {
+            context.Session.SetObject("SessionID", context.Session.Id);
+            context.Session.SetObject("Theme", user.Theme ?? "Blue");
+            context.Session.SetObject("Main_Language", SetDefaultLanguage(ref user));
+            context.Session.SetObject("Main_UserName", user.UserName.Trim());
+            context.Session.SetObject("Main_BusinessUnit", user.BusinessUnit.Trim());
+            context.Session.SetObject("Main_LoginUser", user);
+            context.Session.SetObject("Main_BusinessUnitDetail", businessUnit);
+            context.Session.SetObject("UnAuthorizedTasks", unauthorizedTasks);
+        }
+
+        private string BuildJwtToken(User user, string sessionId)
+        {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub,modal.UserName),
-                new Claim("businessUnit", user.BusinessUnit),
-                //new Claim("sessionID", SessionID??""),
-                new Claim("sessionIDCore", sessionIdCore??""),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName.Trim()),
+            new Claim("BusinessUnit", user.BusinessUnit.Trim()),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        };
 
-            var token = new JwtSecurityToken(_jwtSettings.Issuer,
-              _jwtSettings.Audience,
-              claims,
-              expires: DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpirationMinutes),
-              signingCredentials: credentials);
+            var token = new JwtSecurityToken(
+                _jwtSettings.Issuer,
+                _jwtSettings.Audience,
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpirationMinutes),
+                signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-
-        }
-        private List<string> GetUnAuthorizedTasksForUser(string userName, ref string message)
-        {
-            var dt = _authDal.GetUnAuthorizedTasks(userName, ref message);
-            var taskList = new List<string>();
-            if (dt == null || dt.Rows.Count == 0 || !string.IsNullOrWhiteSpace(message))
-            {
-                return taskList;
-            }
-
-            foreach (DataRow dtRow in dt.Rows)
-            {
-                string taskCode = dtRow["TaskCode"]?.ToString() ?? string.Empty;
-                if (!string.IsNullOrWhiteSpace(taskCode))
-                {
-                    taskList.Add(taskCode);
-                }
-            }
-
-            return taskList;
         }
 
         private int SetDefaultLanguage(ref User user)
         {
             try
             {
-                switch (user.Language.ToString().Trim())
+                return user.Language?.Trim() switch
                 {
-                    case ("English"):
-                        return (int)LanguageChange.Language.English;
-                    case ("Sinhala"):
-                        return (int)LanguageChange.Language.Sinhala;
-                    case ("Tamil"):
-                        return (int)LanguageChange.Language.Tamil;
-                    default:
-                        user.Language = "English";
-                        return (int)LanguageChange.Language.English;
-
-                }
+                    "English" => (int)LanguageChange.Language.English,
+                    "Sinhala" => (int)LanguageChange.Language.Sinhala,
+                    "Tamil" => (int)LanguageChange.Language.Tamil,
+                    _ => SetDefaultLanguageFallback(ref user)
+                };
             }
-            catch (Exception e)
+            catch
             {
-                user.Language = "English";
-                return (int)LanguageChange.Language.English;
+                return SetDefaultLanguageFallback(ref user);
             }
-
         }
+
+        private int SetDefaultLanguageFallback(ref User user)
+        {
+            user.Language = "English";
+            return (int)LanguageChange.Language.English;
+        }
+
+        #endregion
     }
 
 }

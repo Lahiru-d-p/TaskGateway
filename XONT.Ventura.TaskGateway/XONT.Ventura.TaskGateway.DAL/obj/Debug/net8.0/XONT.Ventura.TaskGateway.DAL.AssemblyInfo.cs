@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © x-ont")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("4.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e718573a232137c5ff831d48ab50b4dd6b87637")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd41b7d0ddb8d99557fe7e484a644a5e2df09b0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("XONT.Ventura.TaskGateway.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XONT.Ventura.TaskGateway.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("4.0.0.0")]
